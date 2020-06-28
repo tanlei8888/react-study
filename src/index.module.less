@@ -1,0 +1,192 @@
+*{
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+a{
+  color: black;
+}
+body{
+  height: 100vh;
+  // color: #737373;
+  background-color: #F5F5F5;
+}
+html body .active{
+  color: #ee394a !important;
+}
+.jinxi{
+    font-size: 40/75rem;
+    // width: 100vw;
+    .jinxiHeader{
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 101;
+        background-color: #ee394a;
+        color: #fff;
+      display:flex;
+      height:100/75rem;
+      justify-content: space-between;
+      align-items: center;
+      padding:0 15/75rem;
+    }
+    .jinxiBanner{
+      position: relative;
+      margin-top: 100/75rem;
+      height: 320/75rem;
+      width: 100%;
+      .jinxiBannerList{
+        width: 100%;
+        height: 320/75rem;
+        position: relative;
+        .jinxiBannerItem{
+          position: absolute;
+          width: 100%;
+          height: 320/75rem;
+          transition: all .5s;
+          .img{
+            width: 100%;
+            height: 320/75rem;  
+          }
+        }
+        .hidden{
+         opacity: 0;
+        }
+        .show{
+          opacity: 1;
+          // width: 100%; 
+        }
+      }
+      .jinxiBannerTab{
+        width: 100%;
+        position: absolute;
+        bottom: 10/75rem;
+        display: flex;
+        justify-content: center;
+        div{
+          margin: 10/75rem;
+          width: 24/75rem;
+          height: 6/75rem;
+          background-color: white;
+        }
+        .active{
+          background-color: #ee394a;
+        }
+      }
+    }
+   .jinxiNavs{
+     height: 206/75rem;
+      margin: 20/75rem 0;
+      background-color: #fff;
+     display: flex;
+     justify-content: space-evenly;
+     align-items: center;
+     .Navsitem{
+       font-size: 28/75rem;
+        img{
+          width: 112/75rem;
+          height: 112/75rem;
+        }
+        p{
+          padding-top: 10/75rem;
+          text-align: center;
+        }
+     }
+   }
+   .jinxiCustomer{
+     height: 342/75rem;
+     background-color: #fff;
+     h3{
+       padding: 25/75rem 35/75rem;
+       font-size: 32/75rem;
+     }
+    //  line-height: 342/75rem;
+     .jinxiCustomerList{
+       display: flex;
+       justify-content: space-evenly;
+       align-items: center;
+       .jinxiCustomerItem{
+          img{
+            width: 140/75rem;
+            height: 140/75rem;
+            border-radius: 50%;
+          }
+          p{
+            text-align: center;
+            padding-top: 25/75rem;
+            font-size: 28/75rem;
+          }
+       }
+     }
+   }
+   .jinxiProduc {
+     margin-top: 20/75rem;
+     margin-bottom: 133/75rem;
+    h3 {
+      background-color: #fff;
+      font-size: 32/75rem;
+      padding: 30/75rem;
+    }
+  
+    .ProducList {
+      font-size: 28/75rem;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      .ProducItem {
+        width: 32%;
+        height: 306/75rem;
+        background-color: white;
+        margin-bottom: 10/75rem;
+        img {
+          width: 100%;
+          height: 202/75rem;
+        }
+  
+        p {
+          white-space: nowrap;
+          overflow: hidden;
+          padding: 5/75rem 10/75rem;
+        }
+        .price{
+          color: #ee394a;
+        }
+      }
+    }
+  }
+  .tableBar {
+    width: 100vw;
+    position: fixed;
+    overflow: hidden;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    background-color: white;
+    color: #737373;
+    height: 133/75rem;
+    border-top: 1px solid #e6e6e6;
+    .tableBarItem {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      a{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        flex: 1;
+        .iconfont{
+          font-size: 50/75rem;
+        }
+        p {
+         
+        }
+      }
+    }
+  }
+}
