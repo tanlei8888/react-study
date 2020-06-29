@@ -3,34 +3,31 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 //导入样式
 import Index from './index.module.css'
+//导入头部组件
+import Header from './components/Hearder'
 //导入轮播图组件
 import Swiper from './components/swiper'
 //导入商品促销组件
 import Produc from './components/Produc'
+
 //导入action
-import { getBannerList  } from './store/actionCreator'
+import { getListAction , changeHeader} from './store/actionCreator'
 
 
 class App extends Component {
-  
+  componentDidMount(){
+    this.props.getBannerList()
+    // this.props.headerChange()
+  }
   render() {
+    // console.log(this.props);
     return (<div className='App'>
       <div className={Index.jinxi}>
         {/* 头部开始 */}
-        <div className={Index.jinxiHeader}>
-          <div className={Index.headerCaidan}>
-            <i className='iconfont icon-caidan'></i>
-          </div>
-          <div className={Index.headerTitle}>
-              京西商城
-          </div>
-          <div className={Index.headerSerach}>
-            <i className='iconfont icon-icon-test'></i>
-          </div>
-        </div>
+        <Header jumpIndex={this.props.headerChange}/>
         {/* 头部结束 */}
         {/* 轮播图开始 */}
-        <Swiper></Swiper>
+        <Swiper bannerList={this.props.bannerList}></Swiper>
         {/* 轮播图结束 */}
         {/* 导航栏开始 */}
         <div className={Index.jinxiNavs}>
@@ -80,7 +77,7 @@ class App extends Component {
             </div>
         </div>   
         {/* 商品促销开始 */}
-        <Produc></Produc>
+        <Produc headerChange={this.props.headerChange} products={this.props.products}></Produc>
         {/* 商品促销结束 */}
       </div>
     </div>)
@@ -90,15 +87,23 @@ class App extends Component {
 //将store中的数据传递到APP组件的props中
 const mapStateToProps = (state) => {
   return {
-    bannerList:state.bannerList.banner
+    bannerList:state.bannerList.banner,//轮播图数据
+    products:state.products,//产品数据
+    hearder:state.hearder
   }
 }
 //将行为action连接到store仓库中
 const mapDispatchToProps = (dispatch) => {
   return {
     getBannerList:()=>{
-      dispatch(getBannerList())
-    }
+      dispatch(getListAction())
+    },
+    headerChange:(params)=>{
+      dispatch(changeHeader(params))
+    },
+    // jumpIndex:(params)=>{
+    //   dispatch(changeHeader(params))
+    // }
   }
 }
 //用connect将store中的数据通过props的方式传递到APP组件上

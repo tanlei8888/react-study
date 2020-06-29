@@ -7,7 +7,6 @@ import './font_1905781_1n8r35gvt1p/iconfont.css';
 import App from './App';
 import ProducDetail from './components/ProducDetail'
 import TableBar from './components/tableBar'
-
 //引入 react-redux 负责将store和组件连接起来
 import { Provider } from 'react-redux'
 //引入store仓库
@@ -23,7 +22,7 @@ ReactDOM.render(
   <Provider store={store}>
       <Router>
           <Route path='/' exact  component={ App }/>
-          <Route path='/ProducDetail/' component={ ProducDetail }/>
+          <Route path='/ProducDetail/:id' component={ ProducDetail }/>
           <TableBar></TableBar>
       </Router>
   </Provider>,

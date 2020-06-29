@@ -1,36 +1,27 @@
 import React, { Component } from 'react'
-import axios from '../utils/axios'
 import Index from '../index.module.css'
 export default class swiper extends Component {
-    constructor(props) {
-        super(props)
-        console.log()
-        this.state = {
-            banners: [],
-            currentId: 0
-        }
+    state = {
+        currentId: 0
     }
     //挂载时
     componentDidMount() {
-        //请求轮播图数据
-        axios.post('/getIndexLoopimg').then(res => {
-            // console.log(res);
-            this.setState({
-                banners: res.data.wdata
-            })
-        })
         //开启定时器
         this.bannersMove()
+    }
+    componentWillUnmount(){
+        //退出页面停止定时器 优化性能 防止内存泄漏
+        clearInterval(this.time)
     }
     //current判断函数
     currentIdIF = (params) => {
         //如果到了最后一张过后变为第一张
-        if (this.state.currentId > this.state.banners.length - 1) {
+        if (this.state.currentId > this.props.bannerList.length - 1) {
             this.setState({ currentId: 0 })
         }
         //如果第一张再网上则跳到最后一张
         if (this.state.currentId < 0) {
-            this.setState({ currentId: this.state.banners.length - 1 })
+            this.setState({ currentId: this.props.bannerList.length - 1 })
         }
     }
     //轮播开始函数
@@ -86,7 +77,7 @@ export default class swiper extends Component {
                 <div className={Index.jinxiBanner}>
                     <ul className={Index.jinxiBannerList} onTouchStart={this.touchStart} onTouchEnd={this.touchEnd}>
                         {
-                            this.state.banners.map((item, i) => {
+                            this.props.bannerList.map((item, i) => {
                                 return (
                                     <li
                                         className={`${Index.jinxiBannerItem} ${this.state.currentId === i ? Index.show : Index.hidden}`}
@@ -99,7 +90,7 @@ export default class swiper extends Component {
                     </ul>
                     <div className={Index.jinxiBannerTab}>
                         {
-                            this.state.banners.map((item, i) => {
+                            this.props.bannerList.map((item, i) => {
                                 return (
                                     <div
                                         className={this.state.currentId === i ? Index.active : ''}

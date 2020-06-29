@@ -8,6 +8,12 @@
 a {
   color: black;
 }
+b {
+  height: 2.13333333rem;
+  white-space: nowrap;
+  padding: 0.26666667rem;
+  /* width: 1px; */
+}
 body {
   height: 100vh;
   background-color: #F5F5F5;
@@ -30,10 +36,10 @@ html body .active {
   justify-content: space-between;
   align-items: center;
   padding: 0 0.2rem;
+  font-size: 0.69333333rem;
 }
 .jinxi .jinxiBanner {
   position: relative;
-  margin-top: 1.33333333rem;
   height: 4.26666667rem;
   width: 100%;
 }

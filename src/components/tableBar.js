@@ -14,7 +14,7 @@ export default class tableBar extends Component {
                 cid:'shequ',
                 class:'iconfont icon-shequ',
                 title:'社区',
-                link:'producDetail'
+                link:'/producDetail/:id'
             },{
                 cid:'gouwuche',
                 class:'iconfont icon-gouwuche',
@@ -33,7 +33,7 @@ export default class tableBar extends Component {
         this.setState({
             currentId:params
         })
-        console.log(this.props)
+        // console.log(this.props)
     }
     render() {
         return (
